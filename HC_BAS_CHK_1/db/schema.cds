@@ -1,31 +1,24 @@
-using { Currency, managed, sap } from '@sap/cds/common';
-namespace sap.capire.bookshop;
-
-entity Books : managed {
-  key ID : Integer;
-  title  : localized String(111);
-  descr  : localized String(1111);
-  author : Association to Authors;
-  genre  : Association to Genres;
-  stock  : Integer;
-  price  : Decimal;
-  currency : Currency;
-  image : LargeBinary @Core.MediaType : 'image/png';
-}
-
-entity Authors : managed {
-  key ID : Integer;
-  name   : String(111);
-  dateOfBirth  : Date;
-  dateOfDeath  : Date;
-  placeOfBirth : String;
-  placeOfDeath : String;
-  books  : Association to many Books on books.author = $self;
-}
-
-/** Hierarchically organized Code List for Genres */
-entity Genres : sap.common.CodeList {
-  key ID   : Integer;
-  parent   : Association to Genres;
-  children : Composition of many Genres on children.parent = $self;
-}
+// using common reuse aspects
+using { Currency, managed,cuid, sap } from '@sap/cds/common';
+namespace hc450.purchaseorder;
+// Transactional data
+    entity Headers : managed, cuid, {    
+        item            : Composition of many Items on item.poHeader = $self;    
+        partner         : UUID;
+        grossAmount     : Decimal(15,2);
+        currency        : Currency;}
+    entity Items : cuid, {
+        poHeader     : Association to Headers;
+        product      : String(10);        
+        deliveryDate : Date;
+        productdescr : localized String(1111);
+        grossAmount  : Decimal(15,2);
+        netAmount    : Decimal(15,2);
+        taxAmount    : Decimal(15,2);
+        quantity     : Decimal(13, 3);
+        currency     : Currency;
+        quantityUnit : String(3); 
+        noteId : String(10);
+        }
+;    
+    
