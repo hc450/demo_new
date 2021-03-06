@@ -7,6 +7,7 @@ namespace hc450.purchaseorder;
         partner         : UUID;
         grossAmount     : Decimal(15,2);
         currency        : Currency;}
+
     entity Items : cuid, {
         poHeader     : Association to Headers;
         product      : String(10);        
@@ -22,3 +23,4 @@ namespace hc450.purchaseorder;
         }
 ;    
     
+
