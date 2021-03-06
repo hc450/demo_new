@@ -1,4 +1,4 @@
-# CAP HC_BAS_CHK_1
+# CAP helloworld_1
 _out
 *.db
 connection.properties
@@ -27,9 +27,3 @@ mta_archives/
 # IDEs
 # .vscode
 # .idea
-
-# added by cds deploy
-default-env.json
-
-# auto generated wildcard
-gen/db/.env
