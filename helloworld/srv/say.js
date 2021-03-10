@@ -1,3 +1,3 @@
 module.exports = class srv {
-  hello(req) { return `Hello ${req.data.to}!` }
+  hello(req) { return `Hello ${req.data.to}!` } 
 }
