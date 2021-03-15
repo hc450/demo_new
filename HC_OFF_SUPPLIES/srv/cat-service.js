@@ -5,3 +5,4 @@ module.exports = cds.service.impl(function () {
         console.log(`Read Product: ${row.ID}`)
     })
 })
+
