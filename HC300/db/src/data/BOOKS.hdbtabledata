@@ -1,0 +1,23 @@
+{
+    "format_version": 1,
+    "imports": [
+        {
+            "target_table": "HC::BOOKS",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "HC::BOOKS.csv",
+                "has_header": false
+                           },
+            "import_settings": {
+                "include_filter": [ ],
+				"import_columns": [
+                    "ISBN","TITLE","PUBLISHER","EDITION","YEAR","PRICE","CRCY"
+                                  ]
+                               },
+            "column_mappings": {
+			    "ISBN": 1,"TITLE": 2,"PUBLISHER": 3,"EDITION": 4,"YEAR": 5,"PRICE": 6,"CRCY": 7
+
+			                   }
+        }
+               ]
+}

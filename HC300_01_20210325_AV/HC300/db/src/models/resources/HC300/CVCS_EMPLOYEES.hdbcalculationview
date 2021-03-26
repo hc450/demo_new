@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="HC::CVCS_EMPLOYEES" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" defaultClient="$$client$$" visibility="reportingEnabled" calculationScenarioType="TREE_BASED" cacheInvalidationPeriod="NONE" enforceSqlExecution="false" hierarchiesSQLEnabled="true">
+<descriptions defaultDescription="CVCS_EMPLOYEES"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="HC::SNWD_EMPLOYEES" partitionedExecution="false">
+    <resourceUri>HC::SNWD_EMPLOYEES</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1" partitionedExecution="false">
+    <viewAttributes>
+      <viewAttribute id="CLIENT" measureType="simple">
+        <descriptions defaultDescription="CLIENT"/>
+      </viewAttribute>
+      <viewAttribute id="CURRENCY" measureType="simple">
+        <descriptions defaultDescription="CURRENCY"/>
+      </viewAttribute>
+      <viewAttribute id="EMAIL_ADDRESS" measureType="simple">
+        <descriptions defaultDescription="EMAIL_ADDRESS"/>
+      </viewAttribute>
+      <viewAttribute id="EMPLOYEE_ID" measureType="simple">
+        <descriptions defaultDescription="EMPLOYEE_ID"/>
+      </viewAttribute>
+      <viewAttribute id="FIRST_NAME" measureType="simple">
+        <descriptions defaultDescription="FIRST_NAME"/>
+      </viewAttribute>
+      <viewAttribute id="LANGUAGE" measureType="simple">
+        <descriptions defaultDescription="LANGUAGE"/>
+      </viewAttribute>
+      <viewAttribute id="LAST_NAME" measureType="simple">
+        <descriptions defaultDescription="LAST_NAME"/>
+      </viewAttribute>
+      <viewAttribute id="PR_ADDRESS_GUID" measureType="simple">
+        <descriptions defaultDescription="PR_ADDRESS_GUID"/>
+      </viewAttribute>
+      <viewAttribute id="SALARY_AMOUNT" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="SALARY_AMOUNT"/>
+      </viewAttribute>
+      <viewAttribute id="SEX" measureType="simple">
+        <descriptions defaultDescription="SEX"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="HC::SNWD_EMPLOYEES">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CLIENT" source="CLIENT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CURRENCY" source="CURRENCY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="EMAIL_ADDRESS" source="EMAIL_ADDRESS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="EMPLOYEE_ID" source="EMPLOYEE_ID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FIRST_NAME" source="FIRST_NAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LANGUAGE" source="LANGUAGE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LAST_NAME" source="LAST_NAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PR_ADDRESS_GUID" source="PR_ADDRESS_GUID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SALARY_AMOUNT" source="SALARY_AMOUNT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SEX" source="SEX"/>
+    </input>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Projection_1">
+  <attributes>
+    <attribute id="CLIENT_1" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CLIENT_1"/>
+      <keyMapping columnObjectName="Projection_1" columnName="CLIENT"/>
+    </attribute>
+    <attribute id="CURRENCY" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CURRENCY"/>
+      <keyMapping columnObjectName="Projection_1" columnName="CURRENCY"/>
+    </attribute>
+    <attribute id="EMAIL_ADDRESS" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="EMAIL_ADDRESS"/>
+      <keyMapping columnObjectName="Projection_1" columnName="EMAIL_ADDRESS"/>
+    </attribute>
+    <attribute id="EMPLOYEE_ID" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="EMPLOYEE_ID"/>
+      <keyMapping columnObjectName="Projection_1" columnName="EMPLOYEE_ID"/>
+    </attribute>
+    <attribute id="FIRST_NAME" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="FIRST_NAME"/>
+      <keyMapping columnObjectName="Projection_1" columnName="FIRST_NAME"/>
+    </attribute>
+    <attribute id="LANGUAGE" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LANGUAGE"/>
+      <keyMapping columnObjectName="Projection_1" columnName="LANGUAGE"/>
+    </attribute>
+    <attribute id="LAST_NAME" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LAST_NAME"/>
+      <keyMapping columnObjectName="Projection_1" columnName="LAST_NAME"/>
+    </attribute>
+    <attribute id="PR_ADDRESS_GUID" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PR_ADDRESS_GUID"/>
+      <keyMapping columnObjectName="Projection_1" columnName="PR_ADDRESS_GUID"/>
+    </attribute>
+    <attribute id="SEX" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SEX"/>
+      <keyMapping columnObjectName="Projection_1" columnName="SEX"/>
+    </attribute>
+    <attribute id="CLIENT$local">
+      <keyMapping columnObjectName="Projection_1" columnName="CLIENT"/>
+    </attribute>
+    <attribute id="PR_ADDRESS_GUID$local">
+      <keyMapping columnObjectName="Projection_1" columnName="PR_ADDRESS_GUID"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="SALARY_AMOUNT" order="9" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="SALARY_AMOUNT"/>
+      <measureMapping columnObjectName="Projection_1" columnName="SALARY_AMOUNT"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+  <sharedDimensions>
+    <logicalJoin associatedObjectUri="HC::CVD_ADDRESSES">
+      <attributes>
+        <attributeRef>CLIENT$local</attributeRef>
+        <attributeRef>PR_ADDRESS_GUID$local</attributeRef>
+      </attributes>
+      <associatedAttributeNames>
+        <attributeName>CLIENT</attributeName>
+        <attributeName>NODE_KEY</attributeName>
+      </associatedAttributeNames>
+      <properties joinType="referential" joinOperator="Equal"/>
+      <associatedAttributeFeatures/>
+      <associatedHierarchyFeature hierarchyName="H_GEO">
+        <joinProperties nodeElementName="H_GEOnode" expressionParameterName="H_GEOexpr"/>
+      </associatedHierarchyFeature>
+    </logicalJoin>
+  </sharedDimensions>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="77" y="222"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape modelObjectName="Projection_1" modelObjectNameSpace="StarJoinViewNodeInput" modelObjectType="repository">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="HC::CVD_ADDRESSES" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

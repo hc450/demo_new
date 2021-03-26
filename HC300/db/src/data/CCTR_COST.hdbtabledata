@@ -1,0 +1,23 @@
+{
+    "format_version": 1,
+    "imports": [
+        {
+            "target_table": "HC::CCTR_COST",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "HC::CCTR_COST.csv",
+                "has_header": false
+                           },
+            "import_settings": {
+                "include_filter": [ ],
+				"import_columns": [
+                    "CCTR","COST"
+                                  ]
+                               },
+            "column_mappings": {
+			    "CCTR": 1,"COST": 2
+
+			                   }
+        }
+               ]
+}

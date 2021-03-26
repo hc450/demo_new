@@ -21,12 +21,8 @@
   "cds": {
     "requires": {
       "db": {
-        "kind": "sqlite",
-        "model": "*"
+        "kind": "sql"
       }
-    },
-    "hana": {
-      "deploy-format": "hdbtable"
     }
   },
   "sapux": [

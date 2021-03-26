@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" xmlns:Dimension="http://www.sap.com/ndb/BiModelDimension.ecore" id="HC::CVD_ADDRESSES" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" defaultClient="$$client$$" visibility="internal" outputViewType="Projection" calculationScenarioType="TREE_BASED" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CVD_ADDRESSES"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="HC::SNWD_AD">
+    <resourceUri>HC::SNWD_AD</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews/>
+<inlineHierarchy xsi:type="Dimension:LeveledHierarchy" id="H_GEO" aggregateAllNodes="true" orphanedNodesHandling="ROOT_NODES" rootNodeVisibility="ADD_ROOT_NODE" withRootNode="true" nodeStyle="LEVEL_NAME_ENFORCED" cacheEnabled="true" cycleHandling="BREAKUP" emptyValueIsNull="true">
+  <descriptions defaultDescription="H_GEO"/>
+  <unassignedMemberProperties mode="FALSE"/>
+  <levels>
+    <level levelAttribute="COUNTRY" levelType="MDLEVEL_TYPE_REGULAR" order="1" orderAttribute="COUNTRY" sortDirection="ASC"/>
+    <level levelAttribute="CITY" levelType="MDLEVEL_TYPE_REGULAR" order="2" orderAttribute="CITY" sortDirection="ASC"/>
+  </levels>
+</inlineHierarchy>
+<logicalModel id="HC::SNWD_AD">
+  <attributes>
+    <attribute id="ADDRESS_TYPE" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ADDRESS_TYPE"/>
+      <keyMapping columnObjectName="HC::SNWD_AD" columnName="ADDRESS_TYPE"/>
+    </attribute>
+    <attribute id="BUILDING" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BUILDING"/>
+      <keyMapping columnObjectName="HC::SNWD_AD" columnName="BUILDING"/>
+    </attribute>
+    <attribute id="CITY" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CITY"/>
+      <keyMapping columnObjectName="HC::SNWD_AD" columnName="CITY"/>
+    </attribute>
+    <attribute id="CLIENT" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CLIENT"/>
+      <keyMapping columnObjectName="HC::SNWD_AD" columnName="CLIENT"/>
+    </attribute>
+    <attribute id="COUNTRY" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="COUNTRY"/>
+      <keyMapping columnObjectName="HC::SNWD_AD" columnName="COUNTRY"/>
+    </attribute>
+    <attribute id="NODE_KEY" key="true" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="NODE_KEY"/>
+      <keyMapping columnObjectName="HC::SNWD_AD" columnName="NODE_KEY"/>
+    </attribute>
+    <attribute id="POSTAL_CODE" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="POSTAL_CODE"/>
+      <keyMapping columnObjectName="HC::SNWD_AD" columnName="POSTAL_CODE"/>
+    </attribute>
+    <attribute id="STREET" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="STREET"/>
+      <keyMapping columnObjectName="HC::SNWD_AD" columnName="STREET"/>
+    </attribute>
+    <attribute id="VAL_END_DATE" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VAL_END_DATE"/>
+      <keyMapping columnObjectName="HC::SNWD_AD" columnName="VAL_END_DATE"/>
+    </attribute>
+    <attribute id="VAL_START_DATE" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VAL_START_DATE"/>
+      <keyMapping columnObjectName="HC::SNWD_AD" columnName="VAL_START_DATE"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

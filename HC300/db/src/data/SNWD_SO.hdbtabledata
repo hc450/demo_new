@@ -1,0 +1,22 @@
+{
+    "format_version": 1,
+    "imports": [
+        {
+            "target_table": "HC::SNWD_SO",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "HC::SNWD_SO.csv",
+                "has_header": false
+                           },
+            "import_settings": {
+                "include_filter": [ ],
+				"import_columns": [
+                    "CLIENT","NODE_KEY","SO_ID","CREATED_BY","CREATED_AT","CHANGED_BY","CHANGED_AT","CREATED_BY_BP","CHANGED_BY_BP","NOTE_GUID","BUYER_GUID","CURRENCY_CODE","GROSS_AMOUNT","NET_AMOUNT","TAX_AMOUNT","LIFECYCLE_STATUS","BILLING_STATUS","DELIVERY_STATUS"
+                                  ]
+                               },
+            "column_mappings": {
+			    "CLIENT": 1,"NODE_KEY": 2,"SO_ID": 3,"CREATED_BY": 4,"CREATED_AT": 5,"CHANGED_BY": 6,"CHANGED_AT": 7,"CREATED_BY_BP": 8,"CHANGED_BY_BP": 9,"NOTE_GUID": 10,"BUYER_GUID": 11,"CURRENCY_CODE": 12,"GROSS_AMOUNT": 13,"NET_AMOUNT": 14,"TAX_AMOUNT": 15,"LIFECYCLE_STATUS": 16,"BILLING_STATUS": 17,"DELIVERY_STATUS": 18
+			                   }
+        }
+               ]
+}

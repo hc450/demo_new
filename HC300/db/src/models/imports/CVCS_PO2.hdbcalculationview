@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="HA300::CVCS_PO2" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" defaultClient="$$client$$" calculationScenarioType="TREE_BASED" cacheInvalidationPeriod="NONE" enforceSqlExecution="false" hierarchiesSQLEnabled="true">
+<descriptions defaultDescription="Purchase Orders"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="HA300::SNWD_PO" partitionedExecution="false">
+    <resourceUri>HA300::SNWD_PO</resourceUri>
+  </DataSource>
+  <DataSource id="HA300::SNWD_PO_I" partitionedExecution="false">
+    <resourceUri>HA300::SNWD_PO_I</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1" cardinality="C1_N" joinType="referential" partitionedExecution="false">
+    <viewAttributes>
+      <viewAttribute id="CLIENT" measureType="simple">
+        <descriptions defaultDescription="CLIENT"/>
+      </viewAttribute>
+      <viewAttribute id="PARTNER_GUID" measureType="simple">
+        <descriptions defaultDescription="PARTNER_GUID"/>
+      </viewAttribute>
+      <viewAttribute id="PO_ID" measureType="simple">
+        <descriptions defaultDescription="PO_ID"/>
+      </viewAttribute>
+      <viewAttribute id="CURRENCY_CODE" measureType="simple">
+        <descriptions defaultDescription="CURRENCY_CODE"/>
+      </viewAttribute>
+      <viewAttribute id="GROSS_AMOUNT" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="GROSS_AMOUNT"/>
+      </viewAttribute>
+      <viewAttribute id="NET_AMOUNT" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="NET_AMOUNT"/>
+      </viewAttribute>
+      <viewAttribute id="PO_ITEM_POS" measureType="simple">
+        <descriptions defaultDescription="PO_ITEM_POS"/>
+      </viewAttribute>
+      <viewAttribute id="PRODUCT_GUID" measureType="simple">
+        <descriptions defaultDescription="PRODUCT_GUID"/>
+      </viewAttribute>
+      <viewAttribute id="TAX_AMOUNT" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="TAX_AMOUNT"/>
+      </viewAttribute>
+      <viewAttribute hidden="true" id="JOIN$NODE_KEY$PARENT_KEY"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="HA300::SNWD_PO">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CLIENT" source="CLIENT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PARTNER_GUID" source="PARTNER_GUID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PO_ID" source="PO_ID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$NODE_KEY$PARENT_KEY" source="NODE_KEY"/>
+    </input>
+    <input node="HA300::SNWD_PO_I">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CURRENCY_CODE" source="CURRENCY_CODE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="GROSS_AMOUNT" source="GROSS_AMOUNT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NET_AMOUNT" source="NET_AMOUNT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PO_ITEM_POS" source="PO_ITEM_POS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCT_GUID" source="PRODUCT_GUID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TAX_AMOUNT" source="TAX_AMOUNT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CLIENT" source="CLIENT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$NODE_KEY$PARENT_KEY" source="PARENT_KEY"/>
+    </input>
+    <joinAttribute name="CLIENT"/>
+    <joinAttribute name="JOIN$NODE_KEY$PARENT_KEY"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Join_1">
+  <attributes>
+    <attribute id="PO_ID" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PO_ID"/>
+      <keyMapping columnObjectName="Join_1" columnName="PO_ID"/>
+    </attribute>
+    <attribute id="PO_ITEM_POS" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PO_ITEM_POS"/>
+      <keyMapping columnObjectName="Join_1" columnName="PO_ITEM_POS"/>
+    </attribute>
+    <attribute id="CURRENCY_CODE" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CURRENCY_CODE"/>
+      <keyMapping columnObjectName="Join_1" columnName="CURRENCY_CODE"/>
+    </attribute>
+    <attribute id="CLIENT$local">
+      <descriptions defaultDescription="CLIENT"/>
+      <keyMapping columnObjectName="Join_1" columnName="CLIENT"/>
+    </attribute>
+    <attribute id="PARTNER_GUID$local">
+      <descriptions defaultDescription="PARTNER_GUID"/>
+      <keyMapping columnObjectName="Join_1" columnName="PARTNER_GUID"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="GROSS_AMOUNT" order="4" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="GROSS_AMOUNT"/>
+      <measureMapping columnObjectName="Join_1" columnName="GROSS_AMOUNT"/>
+    </measure>
+    <measure id="TAX_AMOUNT" order="5" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="TAX_AMOUNT"/>
+      <measureMapping columnObjectName="Join_1" columnName="TAX_AMOUNT"/>
+    </measure>
+  
+    <measure id="NET_AMOUNT" order="6" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="NET_AMOUNT"/>
+      <measureMapping columnObjectName="Join_1" columnName="NET_AMOUNT"/>
+    </measure></baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+  <sharedDimensions>
+    <logicalJoin associatedObjectUri="HA300::CVD_BP2">
+      <attributes>
+        <attributeRef>CLIENT$local</attributeRef>
+        <attributeRef>PARTNER_GUID$local</attributeRef>
+      </attributes>
+      <associatedAttributeNames>
+        <attributeName>CLIENT</attributeName>
+        <attributeName>NODE_KEY</attributeName>
+      </associatedAttributeNames>
+      <properties cardinality="CN_1" joinType="referential" joinOperator="Equal"/>
+      <associatedAttributeFeatures>
+        <attributeReference alias="CLIENT_BP" attributeName="CLIENT" hidden="true"/>
+        <attributeReference alias="NODE_KEY_BP" attributeName="NODE_KEY" hidden="true"/>
+      </associatedAttributeFeatures>
+    </logicalJoin>
+  </sharedDimensions>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="92" y="112"/>
+    
+      <rectangleSize width="140"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="92" y="247"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape modelObjectName="HA300::SNWD_PO" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="HA300::SNWD_PO_I" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="Join_1" modelObjectNameSpace="StarJoinViewNodeInput" modelObjectType="repository">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="HA300::CVD_BP2" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

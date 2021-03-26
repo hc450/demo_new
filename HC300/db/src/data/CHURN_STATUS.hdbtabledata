@@ -1,0 +1,23 @@
+{
+    "format_version": 1,
+    "imports": [
+        {
+            "target_table": "HC::CHURN_STATUS",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "HC::CHURN_STATUS.csv",
+                "has_header": false
+                           },
+            "import_settings": {
+                "include_filter": [ ],
+				"import_columns": [
+                    "CHURN_STATUS","CHURN_DESCRIPTION"
+                                  ]
+                               },
+            "column_mappings": {
+			    "CHURN_STATUS": 1,"CHURN_DESCRIPTION": 2
+
+			                   }
+        }
+               ]
+}

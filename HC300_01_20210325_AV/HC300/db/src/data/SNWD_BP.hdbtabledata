@@ -1,0 +1,22 @@
+{
+    "format_version": 1,
+    "imports": [
+        {
+            "target_table": "HC::SNWD_BP",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "HC::SNWD_BP.csv",
+                "has_header": false
+                           },
+            "import_settings": {
+                "include_filter": [ ],
+				"import_columns": [
+                    "CLIENT","NODE_KEY","BP_CONTACT_GUID","BP_ID","BP_COMPANY_NAME","BP_LEGAL_FORM","CREATED_BY","CREATED_AT","CHANGED_BY","CHANGED_AT","BP_CURRENCY_CODE"
+                                  ]
+                               },
+            "column_mappings": {
+			    "CLIENT": 1,"NODE_KEY": 2,"BP_CONTACT_GUID": 3,"BP_ID": 4,"BP_COMPANY_NAME": 5,"BP_LEGAL_FORM": 6,"CREATED_BY": 7,"CREATED_AT": 8,"CHANGED_BY": 9,"CHANGED_AT": 10,"BP_CURRENCY_CODE": 11
+			                   }
+        }
+               ]
+}

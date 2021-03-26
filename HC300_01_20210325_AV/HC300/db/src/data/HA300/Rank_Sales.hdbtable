@@ -1,0 +1,7 @@
+COLUMN TABLE "HC::RK_SALES_DETAILS"
+	(
+	ORDER_ID integer,
+     CUSTOMER_ID varchar(5),
+     PRODUCT_ID varchar(5),
+     AMOUNT_EUR decimal(5,2)
+	)

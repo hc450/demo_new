@@ -1,0 +1,23 @@
+{
+    "format_version": 1,
+    "imports": [
+        {
+            "target_table": "HC::EMPLOYEE_HIERARCHY",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "HC::EMPLOYEE_HIERARCHY.csv",
+                "has_header": false
+                           },
+            "import_settings": {
+                "include_filter": [ ],
+				"import_columns": [
+                    "PARENT_DNUMBER","CHILD_DNUMBER","VALID_FROM_DATE","VALID_TO_DATE"
+                                  ]
+                               },
+            "column_mappings": {
+			    "PARENT_DNUMBER": 1,"CHILD_DNUMBER": 2,"VALID_FROM_DATE": 3,"VALID_TO_DATE": 4
+
+			                   }
+        }
+               ]
+}

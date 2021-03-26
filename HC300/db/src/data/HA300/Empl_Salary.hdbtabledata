@@ -1,0 +1,33 @@
+{
+    "format_version": 1,
+    "imports": [
+        {
+            "target_table": "HC::Empl_Salary_Current",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "HC::Empl_Salary_Current.csv",
+                "has_header": true
+                           },
+            "import_settings": {
+                "import_columns": [
+                    "Year","EmployeeID","TotalSalary"
+                                  ],
+                "include_filter": []
+                               }
+        },
+        {
+            "target_table": "HC::Empl_Salary_Historical",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "HC::Empl_Salary_Historical.csv",
+                "has_header": true
+                           },
+            "import_settings": {
+                "import_columns": [
+                    "Year","EmployeeID","TotalSalary"
+                                  ],
+                "include_filter": []
+                               }
+        }       
+           ]
+}

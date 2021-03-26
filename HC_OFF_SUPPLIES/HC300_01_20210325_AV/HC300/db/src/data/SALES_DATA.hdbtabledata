@@ -1,0 +1,23 @@
+{
+    "format_version": 1,
+    "imports": [
+        {
+            "target_table": "HC::SALES_DATA",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "HC::SALES_DATA.csv",
+                "has_header": false
+                           },
+            "import_settings": {
+                "include_filter": [ ],
+				"import_columns": [
+                    "CUSTOMER_ID","PRODUCT_ID","QUANTITY","QTY_UNIT","AMOUNT","CURRENCY","SAPDATE","YEAR","MONTH","DAY","SQL_DATE"
+                                  ]
+                               },
+            "column_mappings": {
+			    "CUSTOMER_ID": 1,"PRODUCT_ID": 2,"QUANTITY": 3,"QTY_UNIT": 4,"AMOUNT": 5,"CURRENCY": 6,"SAPDATE": 7,"YEAR": 8,"MONTH": 9,"DAY": 10,"SQL_DATE": 11
+
+			                   }
+        }
+               ]
+}

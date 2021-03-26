@@ -1,0 +1,22 @@
+{
+    "format_version": 1,
+    "imports": [
+        {
+            "target_table": "HC::SNWD_EMPLOYEES",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "HC::SNWD_EMPLOYEES.csv",
+                "has_header": false
+                           },
+            "import_settings": {
+                "include_filter": [ ],
+				"import_columns": [
+                    "CLIENT","NODE_KEY","PARENT_KEY","EMPLOYEE_ID","FIRST_NAME","MIDDLE_NAME","LAST_NAME","INITIALS","SEX","LANGUAGE","EMAIL_ADDRESS","LOGIN_NAME","PR_ADDRESS_GUID","VAL_START_DATE","VAL_END_DATE","CURRENCY","SALARY_AMOUNT","ACCOUNT_NUMBER","BANK_ID","BANK_NAME"
+                                  ]
+                               },
+            "column_mappings": {
+			    "CLIENT": 1,"NODE_KEY": 2,"PARENT_KEY": 3,"EMPLOYEE_ID": 4,"FIRST_NAME": 5,"MIDDLE_NAME": 6,"LAST_NAME": 7,"INITIALS": 8,"SEX": 9,"LANGUAGE": 10,"EMAIL_ADDRESS": 11,"LOGIN_NAME": 12,"PR_ADDRESS_GUID": 13,"VAL_START_DATE": 14,"VAL_END_DATE": 15,"CURRENCY": 16,"SALARY_AMOUNT": 17,"ACCOUNT_NUMBER": 18,"BANK_ID": 19,"BANK_NAME": 20
+			                   }
+        }
+               ]
+}

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="HC::CVD_AIRPORTS" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CVD_AIRPORTS"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="HC::Airports">
+    <resourceUri>HC::Airports</resourceUri>
+  </DataSource>
+  <DataSource id="HC::Countries">
+    <resourceUri>HC::Countries</resourceUri>
+  </DataSource>
+  <DataSource id="HC::States">
+    <resourceUri>HC::States</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1" cardinality="CN_N" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="AirportID"/>
+      <viewAttribute id="Airport"/>
+      <viewAttribute id="City"/>
+      <viewAttribute id="Country"/>
+      <viewAttribute id="State"/>
+      <viewAttribute hidden="true" id="JOIN$Country$Code"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="HC::Airports">
+      <mapping xsi:type="Calculation:AttributeMapping" target="AirportID" source="Code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Airport" source="Description"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="City" source="City"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="State" source="State"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$Country$Code" source="Country"/>
+    </input>
+    <input node="HC::Countries">
+      <mapping xsi:type="Calculation:AttributeMapping" target="Country" source="Description"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$Country$Code" source="Code"/>
+    </input>
+    <joinAttribute name="JOIN$Country$Code"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_2" cardinality="CN_N" joinType="leftOuter">
+    <viewAttributes>
+      <viewAttribute id="AirportID"/>
+      <viewAttribute id="Airport"/>
+      <viewAttribute id="City"/>
+      <viewAttribute id="Country"/>
+      <viewAttribute id="State"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="Join_1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="AirportID" source="AirportID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Airport" source="Airport"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="City" source="City"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Country" source="Country"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="State" source="State"/>
+    </input>
+    <input node="HC::States">
+      <mapping xsi:type="Calculation:AttributeMapping" target="State" source="Code"/>
+    </input>
+    <joinAttribute name="State"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Join_2">
+  <attributes>
+    <attribute id="AirportID" order="1" displayAttribute="false" attributeHierarchyActive="false" key="true">
+      <descriptions defaultDescription="Airport Code"/>
+      <keyMapping columnObjectName="Join_2" columnName="AirportID"/>
+    </attribute>
+    <attribute id="Airport" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Airport Description"/>
+      <keyMapping columnObjectName="Join_2" columnName="Airport"/>
+    </attribute>
+    <attribute id="City" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="City"/>
+      <keyMapping columnObjectName="Join_2" columnName="City"/>
+    </attribute>
+    <attribute id="State" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="State Code"/>
+      <keyMapping columnObjectName="Join_2" columnName="State"/>
+    </attribute>
+  
+    <attribute id="Country" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Country Description"/>
+  
+      <keyMapping columnObjectName="Join_2" columnName="Country"/>
+  
+    </attribute></attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="100" y="326"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="HC::Airports" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="HC::Countries" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_2" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="100" y="222"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="Join_1" modelObjectNameSpace="Join_2" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="HC::States" modelObjectNameSpace="Join_2" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

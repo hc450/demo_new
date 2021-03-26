@@ -1,0 +1,22 @@
+{
+    "format_version": 1,
+    "imports": [
+        {
+            "target_table": "HC::SNWD_PO",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "HC::SNWD_PO.csv",
+                "has_header": false
+                           },
+            "import_settings": {
+                "include_filter": [ ],
+				"import_columns": [
+                    "CLIENT","NODE_KEY","PO_ID","CREATED_BY","CREATED_AT","CHANGED_BY","CHANGED_AT","NOTE_GUID","PARTNER_GUID","CURRENCY_CODE","GROSS_AMOUNT","NET_AMOUNT","TAX_AMOUNT","LIFECYCLE_STATUS","APPROVAL_STATUS","CONFIRM_STATUS","ORDERING_STATUS","INVOICING_STATUS"
+                                  ]
+                               },
+            "column_mappings": {
+			    "CLIENT": 1,"NODE_KEY": 2,"PO_ID": 3,"CREATED_BY": 4,"CREATED_AT": 5,"CHANGED_BY": 6,"CHANGED_AT": 7,"NOTE_GUID": 8,"PARTNER_GUID": 9,"CURRENCY_CODE": 10,"GROSS_AMOUNT": 11,"NET_AMOUNT": 12,"TAX_AMOUNT": 13,"LIFECYCLE_STATUS": 14,"APPROVAL_STATUS": 15,"CONFIRM_STATUS": 16,"ORDERING_STATUS": 17,"INVOICING_STATUS": 18
+			                   }
+        }
+               ]
+}

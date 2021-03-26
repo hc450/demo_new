@@ -1,0 +1,7 @@
+COLUMN TABLE "HC::Empl_Salary_Current"
+	(
+	"Year" INTEGER NOT NULL,
+	"EmployeeID" INTEGER NOT NULL,
+	"TotalSalary" DECIMAL(10, 2),
+	PRIMARY KEY ( "Year", "EmployeeID")
+)

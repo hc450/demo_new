@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Privilege:analyticPrivilege xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:AccessControl="http://www.sap.com/ndb/SQLCoreModelAccessControl.ecore" xmlns:Privilege="http://www.sap.com/ndb/BiModelPrivilege.ecore" schemaVersion="1.1" id="HC::AP_COUNTRY_DE" privilegeType="SQL_ANALYTIC_PRIVILEGE">
+<descriptions defaultDescription="DE Partners"></descriptions>
+<securedModels>
+  <modelUri>HC::CVCS_PO3_AP</modelUri>
+</securedModels>
+<restriction>
+  <filter xsi:type="Privilege:AttributeFilter" attributeName="COUNTRY">
+    <valueFilter lowValue="undefined" including="true" xsi:type="AccessControl:SingleValueFilter" highValue="undefined" value="DE"></valueFilter>
+  </filter>
+  <attributeName>COUNTRY</attributeName>
+  <originInformationModelUri>HC::CVD_BP2</originInformationModelUri>
+</restriction>
+</Privilege:analyticPrivilege>

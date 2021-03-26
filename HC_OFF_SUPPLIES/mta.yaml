@@ -18,20 +18,20 @@ build-parameters:
 
 modules:
  # --------------------- SERVER MODULE ------------------------
- - name: HC_OFF_SUPPLIES-srv
+ - name: HC_OFF_SUPPLIES_2-srv
  # ------------------------------------------------------------
    type: nodejs
    path: gen/srv
    requires:
     # Resources extracted from CAP configuration
-    - name: HC_OFF_SUPPLIES-db
+    - name: HC_OFF_SUPPLIES_2-db
    provides:
     - name: srv-api      # required by consumers of CAP services (e.g. approuter)
       properties:
         srv-url: ${default-url}
 
  # -------------------- SIDECAR MODULE ------------------------
- - name: HC_OFF_SUPPLIES-db-deployer
+ - name: HC_OFF_SUPPLIES_2-db-deployer
  # ------------------------------------------------------------
    type: hdb
    path: gen/db  
@@ -39,14 +39,14 @@ modules:
      buildpack: nodejs_buildpack
    requires:
     # 'hana' and 'xsuaa' resources extracted from CAP configuration
-    - name: HC_OFF_SUPPLIES-db
+    - name: HC_OFF_SUPPLIES_2-db
 
 
 resources:
  # services extracted from CAP configuration
  # 'service-plan' can be configured via 'cds.requires.<name>.vcap.plan'
 # ------------------------------------------------------------
- - name: HC_OFF_SUPPLIES-db
+ - name: HC_OFF_SUPPLIES_2-db
 # ------------------------------------------------------------
    type: com.sap.xs.hdi-container
    parameters:

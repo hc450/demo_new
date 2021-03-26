@@ -1,0 +1,22 @@
+{
+    "format_version": 1,
+    "imports": [
+        {
+            "target_table": "HC::SNWD_PD",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "HC::SNWD_PD.csv",
+                "has_header": false
+                           },
+            "import_settings": {
+                "include_filter": [ ],
+				"import_columns": [
+                    "CLIENT","NODE_KEY","PRODUCT_ID","TYPE_CODE","CATEGORY","CREATED_BY","CREATED_AT","CHANGED_BY","CHANGED_AT","NAME_GUID","DESC_GUID","SUPPLIER_GUID","TAX_TARIF_CODE","MEASURE_UNIT","WEIGHT_MEASURE","WEIGHT_UNIT","CURRENCY_CODE","PRICE","PRODUCT_PIC_URL"
+                                  ]
+                               },
+            "column_mappings": {
+			    "CLIENT": 1,"NODE_KEY": 2,"PRODUCT_ID": 3,"TYPE_CODE": 4,"CATEGORY": 5,"CREATED_BY": 6,"CREATED_AT": 7,"CHANGED_BY": 8,"CHANGED_AT": 9,"NAME_GUID": 10,"DESC_GUID": 11,"SUPPLIER_GUID": 12,"TAX_TARIF_CODE": 13,"MEASURE_UNIT": 14,"WEIGHT_MEASURE": 15,"WEIGHT_UNIT": 16,"CURRENCY_CODE": 17,"PRICE": 18,"PRODUCT_PIC_URL": 19
+			                   }
+        }
+               ]
+}

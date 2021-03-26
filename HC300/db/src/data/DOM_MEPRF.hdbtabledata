@@ -1,0 +1,22 @@
+{
+    "format_version": 1,
+    "imports": [
+        {
+            "target_table": "HC::DOM_MEPRF",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "HC::DOM_MEPRF.csv",
+                "has_header": false
+                           },
+            "import_settings": {
+                "include_filter": [ ],
+				"import_columns": [
+                    "DOMVALUE_L"
+                                  ]
+                               },
+            "column_mappings": {
+			    "DOMVALUE_L": 1
+			                   }
+        }
+               ]
+}

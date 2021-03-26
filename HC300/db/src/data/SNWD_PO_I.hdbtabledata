@@ -1,0 +1,22 @@
+{
+    "format_version": 1,
+    "imports": [
+        {
+            "target_table": "HC::SNWD_PO_I",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "HC::SNWD_PO_I.csv",
+                "has_header": false
+                           },
+            "import_settings": {
+                "include_filter": [ ],
+				"import_columns": [
+                    "CLIENT","NODE_KEY","PARENT_KEY","PO_ITEM_POS","PRODUCT_GUID","NOTE_GUID","CURRENCY_CODE","GROSS_AMOUNT","NET_AMOUNT","TAX_AMOUNT"
+                                  ]
+                               },
+            "column_mappings": {
+			    "CLIENT": 1,"NODE_KEY": 2,"PARENT_KEY": 3,"PO_ITEM_POS": 4,"PRODUCT_GUID": 5,"NOTE_GUID": 6,"CURRENCY_CODE": 7,"GROSS_AMOUNT": 8,"NET_AMOUNT": 9,"TAX_AMOUNT": 10
+			                   }
+        }
+               ]
+}

@@ -1,0 +1,23 @@
+{
+    "format_version": 1,
+    "imports": [
+        {
+            "target_table": "HC::CITIES",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "HC::CITIES.csv",
+                "has_header": false
+                           },
+            "import_settings": {
+                "include_filter": [ ],
+				"import_columns": [
+                    "MANDT","COUNTRY","CITY","CAPITAL"
+                                  ]
+                               },
+            "column_mappings": {
+			    "MANDT": 1,"COUNTRY": 2,"CITY": 3,"CAPITAL": 4
+
+			                   }
+        }
+               ]
+}

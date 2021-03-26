@@ -1,0 +1,23 @@
+{
+    "format_version": 1,
+    "imports": [
+        {
+            "target_table": "HC::ORDERS",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "HC::ORDERS.csv",
+                "has_header": false
+                           },
+            "import_settings": {
+                "include_filter": [ ],
+				"import_columns": [
+                    "ORDER_ID","PRODUCT","STORE","CUSTOMER","QUANTITY","UNIT_PRICE"
+                                  ]
+                               },
+            "column_mappings": {
+			    "ORDER_ID": 1,"PRODUCT": 2,"STORE": 3,"CUSTOMER": 4,"QUANTITY": 5,"UNIT_PRICE": 6
+
+			                   }
+        }
+               ]
+}

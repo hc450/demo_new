@@ -1,0 +1,13 @@
+{
+  "role": {
+    "name": "HC::DATA_VIEWER3",
+    "schema_analytic_privileges": [
+      {
+        "privileges": [
+          "HC::AP_COUNTRY_DE",
+          "HC::AP_PROD_NOTEBOOKS"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,23 @@
+{
+    "format_version": 1,
+    "imports": [
+        {
+            "target_table": "HC::PRODUCT_GROUP",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "HC::PRODUCT_GROUP.csv",
+                "has_header": false
+                           },
+            "import_settings": {
+                "include_filter": [ ],
+				"import_columns": [
+                    "PRODUCT_GROUP","PRODUCT_GROUP_TEXT","PARENT1","PARENT2"
+                                  ]
+                               },
+            "column_mappings": {
+			    "PRODUCT_GROUP": 1,"PRODUCT_GROUP_TEXT": 2,"PARENT1": 3,"PARENT2": 4
+
+			                   }
+        }
+               ]
+}

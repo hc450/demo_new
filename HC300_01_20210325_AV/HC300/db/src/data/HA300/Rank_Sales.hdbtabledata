@@ -1,0 +1,19 @@
+{
+    "format_version": 1,
+    "imports": [
+        {
+            "target_table": "HC::RK_SALES_DETAILS",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "HC::Rank_Sales.csv",
+                "has_header": true
+                           },
+            "import_settings": {
+                "import_columns": [
+                    "ORDER_ID","CUSTOMER_ID","PRODUCT_ID","AMOUNT_EUR"
+                                  ],
+                "include_filter": []
+                               }
+        }
+               ]
+}

@@ -1,0 +1,22 @@
+{
+    "format_version": 1,
+    "imports": [
+        {
+            "target_table": "HC::SNWD_CONTACT",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "HC::SNWD_CONTACT.csv",
+                "has_header": false
+                           },
+            "import_settings": {
+                "include_filter": [ ],
+				"import_columns": [
+                    "CLIENT","NODE_KEY","PARTNER_GUID","TITLE","FIRST_NAME","MIDDLE_NAME","LAST_NAME","NICKNAME","INITIALS","SEX","ADDRESS_GUID","PHONE_GUID","EMAIL_GUID","LANGUAGE","WEB_ADDRESS_GUID"
+                                  ]
+                               },
+            "column_mappings": {
+			    "CLIENT": 1,"NODE_KEY": 2,"PARTNER_GUID": 3,"TITLE": 4,"FIRST_NAME": 5,"MIDDLE_NAME": 6,"LAST_NAME": 7,"NICKNAME": 8,"INITIALS": 9,"SEX": 10,"ADDRESS_GUID": 11,"PHONE_GUID": 12,"EMAIL_GUID": 13,"LANGUAGE": 14,"WEB_ADDRESS_GUID": 15
+			                   }
+        }
+               ]
+}

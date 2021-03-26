@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="HC::CVC_BANK_CHURN" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CVC_BANK_CHURN"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="HC::CHURN_STATUS">
+    <resourceUri>HC::CHURN_STATUS</resourceUri>
+  </DataSource>
+  <DataSource id="HC::BANK_WITH_PARTITIONS">
+    <resourceUri>HC::BANK_WITH_PARTITIONS</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
+    <viewAttributes>
+      <viewAttribute id="CHURN_STATUS"/>
+      <viewAttribute id="CHURN_DESCRIPTION"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="CHURN_FLAG" datatype="INTEGER" expressionLanguage="COLUMN_ENGINE">
+        <formula>if(&quot;CHURN_STATUS&quot; = 'A',0,1)</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="HC::CHURN_STATUS"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1" cardinality="CN_N" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="BP_Nr" aggregationType="sum"/>
+      <viewAttribute id="Age" aggregationType="sum"/>
+      <viewAttribute id="Income" aggregationType="sum"/>
+      <viewAttribute id="churn_flag" aggregationType="sum"/>
+      <viewAttribute id="CHURN_DESCRIPTION"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="HC::BANK_WITH_PARTITIONS">
+      <mapping xsi:type="Calculation:AttributeMapping" target="BP_Nr" source="BP_Nr"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Age" source="Age"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Income" source="Income"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="churn_flag" source="churn_flag"/>
+    </input>
+    <input node="Projection_1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CHURN_DESCRIPTION" source="CHURN_DESCRIPTION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="churn_flag" source="CHURN_FLAG"/>
+    </input>
+    <joinAttribute name="churn_flag"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Join_1">
+  <attributes>
+    <attribute id="BP_Nr" order="1" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription=" "/>
+      <keyMapping columnObjectName="Join_1" columnName="BP_Nr"/>
+    </attribute>
+    <attribute id="Age" order="2" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription=" "/>
+      <keyMapping columnObjectName="Join_1" columnName="Age"/>
+    </attribute>
+    <attribute id="churn_flag" order="4" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription=" "/>
+      <keyMapping columnObjectName="Join_1" columnName="churn_flag"/>
+    </attribute>
+    <attribute id="CHURN_DESCRIPTION" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CHURN_DESCRIPTION"/>
+      <keyMapping columnObjectName="Join_1" columnName="CHURN_DESCRIPTION"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="Income" order="3" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription=" "/>
+      <measureMapping columnObjectName="Join_1" columnName="Income"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="90" y="304"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="100" y="196"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape modelObjectName="HC::BANK_WITH_PARTITIONS" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="-306" y="-111"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="Projection_1" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="213" y="129"/>
+      <rectangleSize width="250"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

@@ -1,0 +1,23 @@
+{
+    "format_version": 1,
+    "imports": [
+        {
+            "target_table": "HC::CUSTOMER",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "HC::CUSTOMER.csv",
+                "has_header": false
+                           },
+            "import_settings": {
+                "include_filter": [ ],
+				"import_columns": [
+                    "CUSTOMER_ID","CUSTOMER_TEXT","COUNTRY","REGION","LOCATION","DISCOUNT_GROUP_ID"
+                                  ]
+                               },
+            "column_mappings": {
+			    "CUSTOMER_ID": 1,"CUSTOMER_TEXT": 2,"COUNTRY": 3,"REGION": 4,"LOCATION": 5,"DISCOUNT_GROUP_ID": 6
+
+			                   }
+        }
+               ]
+}

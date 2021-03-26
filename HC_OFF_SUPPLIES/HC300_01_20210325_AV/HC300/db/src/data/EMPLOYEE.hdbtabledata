@@ -1,0 +1,23 @@
+{
+    "format_version": 1,
+    "imports": [
+        {
+            "target_table": "HC::EMPLOYEE",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "HC::EMPLOYEE.csv",
+                "has_header": false
+                           },
+            "import_settings": {
+                "include_filter": [ ],
+				"import_columns": [
+                    "DNUMBER","NAME","DATEOFBIRTH","REMAINDERDAYS","DEPID"
+                                  ]
+                               },
+            "column_mappings": {
+			    "DNUMBER": 1,"NAME": 2,"DATEOFBIRTH": 3,"REMAINDERDAYS": 4,"DEPID": 5
+
+			                   }
+        }
+               ]
+}

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" schemaVersion="3.0" dataCategory="CUBE" cacheInvalidationPeriod="NONE" id="HC::DEMO_RANK2" applyPrivilegeType="NONE" outputViewType="Aggregation" enforceSqlExecution="false">
+<descriptions defaultDescription="Rank node demo"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="HC::DEMO_CVC_SALES_FOR_RANK">
+    <resourceUri>HC::DEMO_CVC_SALES_FOR_RANK</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:RankView" id="Rank_1">
+    <viewAttributes>
+    
+      <viewAttribute id="CUSTOMER_ID"/>
+    
+      <viewAttribute id="PRODUCT_ID"/>
+      <viewAttribute aggregationType="sum" id="AMOUNT_EUR"/></viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="HC::DEMO_CVC_SALES_FOR_RANK"/>
+    <rankingFilter type="RANK" offset="0" offsetReference="FRONT" dynamicPartitionAttributes="false">
+      <partitionViewAttributeName id="CUSTOMER_ID"/>
+      <order byViewAttributeName="AMOUNT_EUR" direction="DESC"/>
+      <rankThreshold>
+        <value>3</value>
+      </rankThreshold>
+      <rankViewAttributeName>RANK</rankViewAttributeName>
+    </rankingFilter>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Rank_1">
+  <attributes>
+    <attribute id="CUSTOMER_ID" displayAttribute="false" order="1" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CUSTOMER_ID"/>
+      <keyMapping columnObjectName="Rank_1" columnName="CUSTOMER_ID"/>
+    </attribute>
+  
+    <attribute id="PRODUCT_ID" displayAttribute="false" order="2" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PRODUCT_ID"/>
+  
+      <keyMapping columnObjectName="Rank_1" columnName="PRODUCT_ID"/>
+  
+    </attribute>
+  
+    <attribute id="RANK" displayAttribute="false" order="4" attributeHierarchyActive="false">
+      <descriptions defaultDescription="RANK"/>
+  
+      <keyMapping columnObjectName="Rank_1" columnName="RANK"/>
+  
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure aggregationType="sum" id="AMOUNT_EUR" order="3" measureType="simple">
+      <descriptions defaultDescription="AMOUNT_EUR"/>
+      <measureMapping columnObjectName="Rank_1" columnName="AMOUNT_EUR"/>
+    </measure></baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectNameSpace="MeasureGroup" modelObjectName="Output">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectNameSpace="CalculationView" modelObjectName="Rank_1">
+      <upperLeftCorner x="100" y="208"/>
+      <rectangleSize width="160" height="30"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

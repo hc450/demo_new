@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="HC::CVCS_DELAY" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CVCS_DELAY"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="HC::On_Time">
+    <resourceUri>HC::On_Time</resourceUri>
+  </DataSource>
+  <DataSource id="HC::Airlines">
+    <resourceUri>HC::Airlines</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1" cardinality="CN_N" joinType="inner" filterExpressionLanguage="COLUMN_ENGINE">
+    <viewAttributes>
+      <viewAttribute id="Year" aggregationType="sum"/>
+      <viewAttribute id="Month" aggregationType="sum"/>
+      <viewAttribute id="OriginAirportID" aggregationType="sum"/>
+      <viewAttribute id="Description"/>
+      <viewAttribute id="DepDelay" aggregationType="sum"/>
+      <viewAttribute id="Cancelled" aggregationType="sum"/>
+      <viewAttribute hidden="true" id="JOIN$AirlineID$Code"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="HC::On_Time">
+      <mapping xsi:type="Calculation:AttributeMapping" target="Year" source="Year"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Month" source="Month"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DepDelay" source="DepDelay"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Cancelled" source="Cancelled"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="OriginAirportID" source="OriginAirportID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$AirlineID$Code" source="AirlineID"/>
+    </input>
+    <input node="HC::Airlines">
+      <mapping xsi:type="Calculation:AttributeMapping" target="Description" source="Description"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$AirlineID$Code" source="Code"/>
+    </input>
+    <filter>&quot;DepDelay&quot;&gt;15 and &quot;Cancelled&quot;=0</filter>
+    <joinAttribute name="JOIN$AirlineID$Code"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Join_1">
+  <attributes>
+    <attribute id="Year" key="true" order="1" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Year"/>
+      <keyMapping columnObjectName="Join_1" columnName="Year"/>
+    </attribute>
+    <attribute id="Month" order="2" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Month"/>
+      <keyMapping columnObjectName="Join_1" columnName="Month"/>
+    </attribute>
+    <attribute id="Description" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Airline Description"/>
+      <keyMapping columnObjectName="Join_1" columnName="Description"/>
+    </attribute>
+    <attribute id="OriginAirportID$local">
+      <descriptions defaultDescription="Origin Airport, Airport ID. An identification number assigned by US DOT to identify a unique airport. Use this field for airport analysis across a range of years because an airport can change its airport code and airport codes can be reused."/>
+      <keyMapping columnObjectName="Join_1" columnName="OriginAirportID"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="DepDelay" order="4" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="Difference in minutes between scheduled and actual departure time. Early departures show negative numbers."/>
+      <measureMapping columnObjectName="Join_1" columnName="DepDelay"/>
+    </measure>
+    <measure id="Cancelled" order="5" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="Cancelled Flight Indicator (1=Yes)"/>
+      <measureMapping columnObjectName="Join_1" columnName="Cancelled"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+  <sharedDimensions>
+    <logicalJoin associatedObjectUri="HC::CVD_AIRPORTS">
+      <attributes>
+        <attributeRef>OriginAirportID$local</attributeRef>
+      </attributes>
+      <associatedAttributeNames>
+        <attributeName>AirportID</attributeName>
+      </associatedAttributeNames>
+      <properties cardinality="CN_N" joinType="referential" joinOperator="Equal"/>
+      <associatedAttributeFeatures/>
+    </logicalJoin>
+  </sharedDimensions>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="100" y="209"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="HC::On_Time" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="HC::Airlines" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="425" y="52"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="Join_1" modelObjectNameSpace="StarJoinViewNodeInput" modelObjectType="repository">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="HC::CVD_AIRPORTS" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

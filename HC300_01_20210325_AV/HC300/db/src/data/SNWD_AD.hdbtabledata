@@ -1,0 +1,22 @@
+{
+    "format_version": 1,
+    "imports": [
+        {
+            "target_table": "HC::SNWD_AD",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "HC::SNWD_AD.csv",
+                "has_header": false
+                           },
+            "import_settings": {
+                "include_filter": [ ],
+				"import_columns": [
+                    "CLIENT","NODE_KEY","CITY","POSTAL_CODE","STREET","BUILDING","COUNTRY","ADDRESS_TYPE","VAL_START_DATE","VAL_END_DATE"
+                                  ]
+                               },
+            "column_mappings": {
+			    "CLIENT": 1,"NODE_KEY": 2,"CITY": 3,"POSTAL_CODE": 4,"STREET": 5,"BUILDING": 6,"COUNTRY": 7,"ADDRESS_TYPE": 8,"VAL_START_DATE": 9,"VAL_END_DATE": 10
+			                   }
+        }
+               ]
+}

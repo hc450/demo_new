@@ -1,0 +1,23 @@
+{
+    "format_version": 1,
+    "imports": [
+        {
+            "target_table": "HC::PRODUCT",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "HC::PRODUCT.csv",
+                "has_header": false
+                           },
+            "import_settings": {
+                "include_filter": [ ],
+				"import_columns": [
+                    "PRODUCT_ID","PRODUCT_TEXT","PRODUCT_GROUP","BASIS_PRICE","CURRENCY","DIVISION"
+                                  ]
+                               },
+            "column_mappings": {
+			    "PRODUCT_ID": 1,"PRODUCT_TEXT": 2,"PRODUCT_GROUP": 3,"BASIS_PRICE": 4,"CURRENCY": 5,"DIVISION": 6
+
+			                   }
+        }
+               ]
+}

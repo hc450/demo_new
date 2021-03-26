@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="HC::CVCS_SO" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" defaultClient="$$client$$" calculationScenarioType="TREE_BASED" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="Sales Orders"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="HC::SNWD_SO" partitionedExecution="false">
+    <resourceUri>HC::SNWD_SO</resourceUri>
+  </DataSource>
+  <DataSource id="HC::SNWD_SO_I" partitionedExecution="false">
+    <resourceUri>HC::SNWD_SO_I</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1" cardinality="CN_1" joinType="referential" partitionedExecution="false">
+    <viewAttributes>
+      <viewAttribute id="CLIENT" measureType="simple"/>
+      <viewAttribute id="SO_ID" measureType="simple"/>
+      <viewAttribute id="BUYER_GUID" measureType="simple"/>
+      <viewAttribute id="PRODUCT_GUID" measureType="simple"/>
+      <viewAttribute id="CURRENCY_CODE" measureType="simple"/>
+      <viewAttribute id="GROSS_AMOUNT" aggregationType="sum" measureType="simple"/>
+      <viewAttribute id="CREATED_AT" aggregationType="sum" measureType="simple"/>
+      <viewAttribute hidden="true" id="JOIN$CLIENT$CLIENT"/>
+      <viewAttribute hidden="true" id="JOIN$PARENT_KEY$NODE_KEY"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="Projection_1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="GROSS_AMOUNT" source="GROSS_AMOUNT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CURRENCY_CODE" source="CURRENCY_CODE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCT_GUID" source="PRODUCT_GUID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$CLIENT$CLIENT" source="CLIENT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$PARENT_KEY$NODE_KEY" source="PARENT_KEY"/>
+    </input>
+    <input node="HC::SNWD_SO">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CLIENT" source="CLIENT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SO_ID" source="SO_ID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BUYER_GUID" source="BUYER_GUID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CREATED_AT" source="CREATED_AT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$CLIENT$CLIENT" source="CLIENT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$PARENT_KEY$NODE_KEY" source="NODE_KEY"/>
+    </input>
+    <joinAttribute name="JOIN$CLIENT$CLIENT"/>
+    <joinAttribute name="JOIN$PARENT_KEY$NODE_KEY"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1" filterExpressionLanguage="SQL" partitionedExecution="false">
+    <viewAttributes>
+      <viewAttribute id="GROSS_AMOUNT" measureType="simple"/>
+      <viewAttribute id="CURRENCY_CODE" measureType="simple"/>
+      <viewAttribute id="PRODUCT_GUID" measureType="simple"/>
+    
+      <viewAttribute id="CLIENT" measureType="simple"/>
+      <viewAttribute id="PARENT_KEY" measureType="simple"/></viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="HC::SNWD_SO_I"/>
+    <filter>&quot;CURRENCY_CODE&quot;='EUR'</filter>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Join_1">
+  <attributes>
+    <attribute id="CLIENT_1" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CLIENT_1"/>
+      <keyMapping columnObjectName="Join_1" columnName="CLIENT"/>
+    </attribute>
+    <attribute id="SO_ID" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SO_ID"/>
+      <keyMapping columnObjectName="Join_1" columnName="SO_ID"/>
+    </attribute>
+    <attribute id="CURRENCY_CODE" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CURRENCY_CODE"/>
+      <keyMapping columnObjectName="Join_1" columnName="CURRENCY_CODE"/>
+    </attribute>
+    <attribute id="CLIENT$local">
+      <descriptions defaultDescription="CLIENT"/>
+      <keyMapping columnObjectName="Join_1" columnName="CLIENT"/>
+    </attribute>
+    <attribute id="BUYER_GUID$local">
+      <descriptions defaultDescription="BUYER_GUID"/>
+      <keyMapping columnObjectName="Join_1" columnName="BUYER_GUID"/>
+    </attribute>
+    <attribute id="PRODUCT_GUID$local">
+      <descriptions defaultDescription="PRODUCT_GUID"/>
+      <keyMapping columnObjectName="Join_1" columnName="PRODUCT_GUID"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="GROSS_AMOUNT" order="4" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="GROSS_AMOUNT"/>
+      <measureMapping columnObjectName="Join_1" columnName="GROSS_AMOUNT"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+  <sharedDimensions>
+    <logicalJoin associatedObjectUri="HC::CVD_BP2">
+      <attributes>
+        <attributeRef>CLIENT$local</attributeRef>
+        <attributeRef>BUYER_GUID$local</attributeRef>
+      </attributes>
+      <associatedAttributeNames>
+        <attributeName>CLIENT</attributeName>
+        <attributeName>NODE_KEY</attributeName>
+      </associatedAttributeNames>
+      <properties cardinality="CN_1" joinType="referential" joinOperator="Equal"/>
+      <associatedAttributeFeatures>
+        <attributeReference alias="NODE_KEY_BP" attributeName="NODE_KEY" hidden="true"/>
+        <attributeReference attributeName="LAST_NAME" hidden="true"/>
+        <attributeReference attributeName="CLIENT" hidden="true"/>
+        <attributeReference attributeName="PARTNER_GUID" hidden="true"/>
+        <attributeReference attributeName="CITY" hidden="true"/>
+        <attributeReference attributeName="EMAIL_ADDRESS" hidden="true"/>
+        <attributeReference attributeName="FIRST_NAME" hidden="true"/>
+        <attributeReference attributeName="LANGUAGE" hidden="true"/>
+        <attributeReference attributeName="BP_ID" hidden="true"/>
+      </associatedAttributeFeatures>
+    </logicalJoin>
+    <logicalJoin associatedObjectUri="HC::CVD_PD">
+      <attributes>
+        <attributeRef>CLIENT$local</attributeRef>
+        <attributeRef>PRODUCT_GUID$local</attributeRef>
+      </attributes>
+      <associatedAttributeNames>
+        <attributeName>CLIENT</attributeName>
+        <attributeName>NODE_KEY</attributeName>
+      </associatedAttributeNames>
+      <properties cardinality="CN_1" joinType="referential" joinOperator="Equal"/>
+      <associatedAttributeFeatures>
+        <attributeReference alias="CLIENT_PD" attributeName="CLIENT" hidden="true"/>
+        <attributeReference alias="NODE_KEY_PD" attributeName="NODE_KEY" hidden="true"/>
+        <attributeReference attributeName="SUPPLIER_GUID" hidden="true"/>
+      </associatedAttributeFeatures>
+    </logicalJoin>
+  </sharedDimensions>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="92" y="112"/>
+    
+      <rectangleSize width="140"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="92" y="247"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape modelObjectName="Projection_1" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="29" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="HC::SNWD_SO" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="92" y="367"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape modelObjectName="Join_1" modelObjectNameSpace="StarJoinViewNodeInput" modelObjectType="repository">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="HC::CVD_BP2" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="352" y="148"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="HC::CVD_PD" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="652" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

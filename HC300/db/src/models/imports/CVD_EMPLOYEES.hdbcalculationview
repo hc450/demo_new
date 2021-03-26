@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="HA300::CVD_EMPLOYEES" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="Employees"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="HA300::Employees">
+    <resourceUri>HA300::Employees</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews/>
+<logicalModel id="HA300::Employees">
+  <attributes>
+    <attribute id="EmployeeID" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="EmployeeID"/>
+      <keyMapping columnObjectName="Employees" columnName="EmployeeID"/>
+    </attribute>
+    <attribute id="Country" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Country"/>
+      <keyMapping columnObjectName="Employees" columnName="Country"/>
+    </attribute>
+    <attribute id="BankAccountNumber" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BankAccountNumber"/>
+      <keyMapping columnObjectName="Employees" columnName="BankAccountNumber"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

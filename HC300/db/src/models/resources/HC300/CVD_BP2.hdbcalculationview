@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" xmlns:Dimension="http://www.sap.com/ndb/BiModelDimension.ecore" id="HC::CVD_BP2" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" defaultClient="$$client$$" outputViewType="Projection" calculationScenarioType="TREE_BASED" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="Business Partners 2"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="HC::SNWD_BP_EM" partitionedExecution="false">
+    <resourceUri>HC::SNWD_BP_EM</resourceUri>
+  </DataSource>
+  <DataSource id="HC::SNWD_BP" partitionedExecution="false">
+    <resourceUri>HC::SNWD_BP</resourceUri>
+  </DataSource>
+  <DataSource id="HC::COUNTRIES" partitionedExecution="false">
+    <resourceUri>HC::COUNTRIES</resourceUri>
+  </DataSource>
+  <DataSource id="HC::SNWD_CONTACT" partitionedExecution="false">
+    <resourceUri>HC::SNWD_CONTACT</resourceUri>
+  </DataSource>
+  <DataSource id="HC::SNWD_AD" partitionedExecution="false">
+    <resourceUri>HC::SNWD_AD</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1" cardinality="C1_1" joinType="referential" partitionedExecution="false">
+    <viewAttributes>
+      <viewAttribute id="CLIENT" measureType="simple">
+        <descriptions defaultDescription="CLIENT"/>
+      </viewAttribute>
+      <viewAttribute id="PARTNER_GUID" measureType="simple">
+        <descriptions defaultDescription="PARTNER_GUID"/>
+      </viewAttribute>
+      <viewAttribute id="FIRST_NAME" measureType="simple">
+        <descriptions defaultDescription="FIRST_NAME"/>
+      </viewAttribute>
+      <viewAttribute id="LAST_NAME" measureType="simple">
+        <descriptions defaultDescription="LAST_NAME"/>
+      </viewAttribute>
+      <viewAttribute id="LANGUAGE" measureType="simple">
+        <descriptions defaultDescription="LANGUAGE"/>
+      </viewAttribute>
+      <viewAttribute id="CITY" measureType="simple">
+        <descriptions defaultDescription="CITY"/>
+      </viewAttribute>
+      <viewAttribute id="COUNTRY" measureType="simple">
+        <descriptions defaultDescription="COUNTRY"/>
+      </viewAttribute>
+      <viewAttribute id="COUNTRY_NAME" measureType="simple">
+        <descriptions defaultDescription="COUNTRY_NAME"/>
+      </viewAttribute>
+      <viewAttribute id="REGION" measureType="simple">
+        <descriptions defaultDescription="REGION"/>
+      </viewAttribute>
+      <viewAttribute id="BP_ID" measureType="simple">
+        <descriptions defaultDescription="BP_ID"/>
+      </viewAttribute>
+      <viewAttribute id="BP_COMPANY_NAME" measureType="simple">
+        <descriptions defaultDescription="BP_COMPANY_NAME"/>
+      </viewAttribute>
+      <viewAttribute id="EMAIL_ADDRESS" measureType="simple">
+        <descriptions defaultDescription="EMAIL_ADDRESS"/>
+      </viewAttribute>
+    
+      <viewAttribute id="NODE_KEY">
+        <descriptions defaultDescription="NODE_KEY"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="Join_2">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CLIENT" source="CLIENT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PARTNER_GUID" source="PARTNER_GUID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FIRST_NAME" source="FIRST_NAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LAST_NAME" source="LAST_NAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LANGUAGE" source="LANGUAGE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CITY" source="CITY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="COUNTRY" source="COUNTRY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="COUNTRY_NAME" source="COUNTRY_NAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="REGION" source="REGION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BP_ID" source="BP_ID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BP_COMPANY_NAME" source="BP_COMPANY_NAME"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="NODE_KEY" source="NODE_KEY"/>
+    </input>
+    <input node="HC::SNWD_BP_EM">
+      <mapping xsi:type="Calculation:AttributeMapping" target="EMAIL_ADDRESS" source="EMAIL_ADDRESS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CLIENT" source="CLIENT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NODE_KEY" source="PARTNER_GUID"/>
+    </input>
+    <joinAttribute name="CLIENT"/>
+    <joinAttribute name="NODE_KEY"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_2" cardinality="C1_1" joinType="referential" partitionedExecution="false">
+    <viewAttributes>
+      <viewAttribute id="CLIENT" measureType="simple">
+        <descriptions defaultDescription="CLIENT"/>
+      </viewAttribute>
+      <viewAttribute id="PARTNER_GUID" measureType="simple">
+        <descriptions defaultDescription="PARTNER_GUID"/>
+      </viewAttribute>
+      <viewAttribute id="FIRST_NAME" measureType="simple">
+        <descriptions defaultDescription="FIRST_NAME"/>
+      </viewAttribute>
+      <viewAttribute id="LAST_NAME" measureType="simple">
+        <descriptions defaultDescription="LAST_NAME"/>
+      </viewAttribute>
+      <viewAttribute id="LANGUAGE" measureType="simple">
+        <descriptions defaultDescription="LANGUAGE"/>
+      </viewAttribute>
+      <viewAttribute id="CITY" measureType="simple">
+        <descriptions defaultDescription="CITY"/>
+      </viewAttribute>
+      <viewAttribute id="COUNTRY" measureType="simple">
+        <descriptions defaultDescription="COUNTRY"/>
+      </viewAttribute>
+      <viewAttribute id="COUNTRY_NAME" measureType="simple">
+        <descriptions defaultDescription="COUNTRY_NAME"/>
+      </viewAttribute>
+      <viewAttribute id="REGION" measureType="simple">
+        <descriptions defaultDescription="REGION"/>
+      </viewAttribute>
+      <viewAttribute id="BP_ID" measureType="simple">
+        <descriptions defaultDescription="BP_ID"/>
+      </viewAttribute>
+      <viewAttribute id="BP_COMPANY_NAME" measureType="simple">
+        <descriptions defaultDescription="BP_COMPANY_NAME"/>
+      </viewAttribute>
+    
+      <viewAttribute id="NODE_KEY">
+        <descriptions defaultDescription="NODE_KEY"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="Join_3">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CLIENT" source="CLIENT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PARTNER_GUID" source="PARTNER_GUID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FIRST_NAME" source="FIRST_NAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LAST_NAME" source="LAST_NAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LANGUAGE" source="LANGUAGE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CITY" source="CITY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="COUNTRY" source="COUNTRY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="COUNTRY_NAME" source="COUNTRY_NAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="REGION" source="REGION"/>
+    </input>
+    <input node="HC::SNWD_BP">
+      <mapping xsi:type="Calculation:AttributeMapping" target="BP_ID" source="BP_ID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BP_COMPANY_NAME" source="BP_COMPANY_NAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NODE_KEY" source="NODE_KEY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CLIENT" source="CLIENT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PARTNER_GUID" source="NODE_KEY"/>
+    </input>
+    <joinAttribute name="CLIENT"/>
+    <joinAttribute name="PARTNER_GUID"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_3" cardinality="C1_1" joinType="referential" partitionedExecution="false">
+    <viewAttributes>
+      <viewAttribute id="CLIENT" measureType="simple">
+        <descriptions defaultDescription="CLIENT"/>
+      </viewAttribute>
+      <viewAttribute id="PARTNER_GUID" measureType="simple">
+        <descriptions defaultDescription="PARTNER_GUID"/>
+      </viewAttribute>
+      <viewAttribute id="FIRST_NAME" measureType="simple">
+        <descriptions defaultDescription="FIRST_NAME"/>
+      </viewAttribute>
+      <viewAttribute id="LAST_NAME" measureType="simple">
+        <descriptions defaultDescription="LAST_NAME"/>
+      </viewAttribute>
+      <viewAttribute id="LANGUAGE" measureType="simple">
+        <descriptions defaultDescription="LANGUAGE"/>
+      </viewAttribute>
+      <viewAttribute id="CITY" measureType="simple">
+        <descriptions defaultDescription="CITY"/>
+      </viewAttribute>
+      <viewAttribute id="COUNTRY" measureType="simple">
+        <descriptions defaultDescription="COUNTRY"/>
+      </viewAttribute>
+      <viewAttribute id="COUNTRY_NAME" measureType="simple">
+        <descriptions defaultDescription="COUNTRY_NAME"/>
+      </viewAttribute>
+      <viewAttribute id="REGION" measureType="simple">
+        <descriptions defaultDescription="REGION"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="Join_4">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CLIENT" source="CLIENT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PARTNER_GUID" source="PARTNER_GUID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FIRST_NAME" source="FIRST_NAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LAST_NAME" source="LAST_NAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LANGUAGE" source="LANGUAGE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CITY" source="CITY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="COUNTRY" source="COUNTRY"/>
+    </input>
+    <input node="HC::COUNTRIES">
+      <mapping xsi:type="Calculation:AttributeMapping" target="COUNTRY_NAME" source="COUNTRY_NAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="REGION" source="REGION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="COUNTRY" source="COUNTRY"/>
+    </input>
+    <joinAttribute name="COUNTRY"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_4" cardinality="C1_1" joinType="referential" partitionedExecution="false">
+    <viewAttributes>
+      <viewAttribute id="CLIENT" measureType="simple">
+        <descriptions defaultDescription="CLIENT"/>
+      </viewAttribute>
+      <viewAttribute id="PARTNER_GUID" measureType="simple">
+        <descriptions defaultDescription="PARTNER_GUID"/>
+      </viewAttribute>
+      <viewAttribute id="FIRST_NAME" measureType="simple">
+        <descriptions defaultDescription="FIRST_NAME"/>
+      </viewAttribute>
+      <viewAttribute id="LAST_NAME" measureType="simple">
+        <descriptions defaultDescription="LAST_NAME"/>
+      </viewAttribute>
+      <viewAttribute id="LANGUAGE" measureType="simple">
+        <descriptions defaultDescription="LANGUAGE"/>
+      </viewAttribute>
+      <viewAttribute id="CITY" measureType="simple">
+        <descriptions defaultDescription="CITY"/>
+      </viewAttribute>
+      <viewAttribute id="COUNTRY" measureType="simple">
+        <descriptions defaultDescription="COUNTRY"/>
+      </viewAttribute>
+      <viewAttribute hidden="true" id="JOIN$ADDRESS_GUID$NODE_KEY"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="HC::SNWD_CONTACT">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CLIENT" source="CLIENT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PARTNER_GUID" source="PARTNER_GUID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FIRST_NAME" source="FIRST_NAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LAST_NAME" source="LAST_NAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LANGUAGE" source="LANGUAGE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ADDRESS_GUID$NODE_KEY" source="ADDRESS_GUID"/>
+    </input>
+    <input node="HC::SNWD_AD">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CITY" source="CITY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="COUNTRY" source="COUNTRY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CLIENT" source="CLIENT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ADDRESS_GUID$NODE_KEY" source="NODE_KEY"/>
+    </input>
+    <joinAttribute name="CLIENT"/>
+    <joinAttribute name="JOIN$ADDRESS_GUID$NODE_KEY"/>
+  </calculationView>
+</calculationViews>
+<inlineHierarchy xsi:type="Dimension:LeveledHierarchy" id="GEO" aggregateAllNodes="true" orphanedNodesHandling="ROOT_NODES" rootNodeVisibility="ADD_ROOT_NODE" withRootNode="true" nodeStyle="NAME_ONLY" cacheEnabled="true" cycleHandling="BREAKUP" emptyValueIsNull="true">
+  <descriptions defaultDescription="Geographical Hierarchy"/>
+  <unassignedMemberProperties mode="FALSE"/>
+  <levels>
+    <level levelAttribute="REGION" levelType="MDLEVEL_TYPE_REGULAR" order="1" orderAttribute="REGION" sortDirection="ASC"/>
+    <level levelAttribute="COUNTRY" levelType="MDLEVEL_TYPE_REGULAR" order="2" orderAttribute="COUNTRY" sortDirection="ASC"/>
+  </levels>
+</inlineHierarchy>
+<logicalModel id="Join_1">
+  <attributes>
+    <attribute id="BP_COMPANY_NAME" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BP_COMPANY_NAME"/>
+      <keyMapping columnObjectName="Join_1" columnName="BP_COMPANY_NAME"/>
+    </attribute>
+    <attribute id="BP_ID" order="2" displayAttribute="false" attributeHierarchyActive="false" descriptionColumnName="BP_COMPANY_NAME" key="true">
+      <descriptions defaultDescription="BP_ID"/>
+      <keyMapping columnObjectName="Join_1" columnName="BP_ID"/>
+    </attribute>
+    <attribute id="CLIENT" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CLIENT"/>
+      <keyMapping columnObjectName="Join_1" columnName="CLIENT"/>
+    </attribute>
+    <attribute id="NODE_KEY" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="NODE_KEY"/>
+      <keyMapping columnObjectName="Join_1" columnName="NODE_KEY"/>
+    </attribute>
+    <attribute id="PARTNER_GUID" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PARTNER_GUID"/>
+      <keyMapping columnObjectName="Join_1" columnName="PARTNER_GUID"/>
+    </attribute>
+    <attribute id="FIRST_NAME" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="FIRST_NAME"/>
+      <keyMapping columnObjectName="Join_1" columnName="FIRST_NAME"/>
+    </attribute>
+    <attribute id="LAST_NAME" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LAST_NAME"/>
+      <keyMapping columnObjectName="Join_1" columnName="LAST_NAME"/>
+    </attribute>
+    <attribute id="LANGUAGE" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LANGUAGE"/>
+      <keyMapping columnObjectName="Join_1" columnName="LANGUAGE"/>
+    </attribute>
+    <attribute id="EMAIL_ADDRESS" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="EMAIL_ADDRESS"/>
+      <keyMapping columnObjectName="Join_1" columnName="EMAIL_ADDRESS"/>
+    </attribute>
+  
+    <attribute id="CITY" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CITY"/>
+  
+      <keyMapping columnObjectName="Join_1" columnName="CITY"/>
+  
+    </attribute>
+    <attribute id="COUNTRY" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="COUNTRY"/>
+      <keyMapping columnObjectName="Join_1" columnName="COUNTRY"/>
+    </attribute>
+    <attribute id="COUNTRY_NAME" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="COUNTRY_NAME"/>
+      <keyMapping columnObjectName="Join_1" columnName="COUNTRY_NAME"/>
+    </attribute>
+    <attribute id="REGION" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="REGION"/>
+      <keyMapping columnObjectName="Join_1" columnName="REGION"/>
+    </attribute></attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="92" y="112"/>
+    
+      <rectangleSize width="140"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="92" y="217"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape modelObjectName="Join_2" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="HC::SNWD_BP_EM" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_2" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="92" y="337"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape modelObjectName="Join_3" modelObjectNameSpace="Join_2" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="HC::SNWD_BP" modelObjectNameSpace="Join_2" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_3" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="92" y="457"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape modelObjectName="Join_4" modelObjectNameSpace="Join_3" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="HC::COUNTRIES" modelObjectNameSpace="Join_3" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_4" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="92" y="577"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape modelObjectName="HC::SNWD_CONTACT" modelObjectNameSpace="Join_4" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="HC::SNWD_AD" modelObjectNameSpace="Join_4" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

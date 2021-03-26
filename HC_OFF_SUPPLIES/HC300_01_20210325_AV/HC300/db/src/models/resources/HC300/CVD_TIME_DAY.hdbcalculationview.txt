@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" xmlns:Dimension="http://www.sap.com/ndb/BiModelDimension.ecore" id="HC::CVD_TIME_DAY" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="TIME" schemaVersion="3.0" defaultClient="$$client$$" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="Time Dimension (Day)"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="HC::M_TIME_DIMENSION_SYS_BI">
+    <resourceUri>HC::M_TIME_DIMENSION_SYS_BI</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="DATETIMESTAMP">
+        <descriptions defaultDescription="DATETIMESTAMP"/>
+      </viewAttribute>
+      <viewAttribute id="DATE_SQL">
+        <descriptions defaultDescription="DATE_SQL"/>
+      </viewAttribute>
+      <viewAttribute id="DATETIME_SAP">
+        <descriptions defaultDescription="DATETIME_SAP"/>
+      </viewAttribute>
+      <viewAttribute id="DATE_SAP">
+        <descriptions defaultDescription="DATE_SAP"/>
+      </viewAttribute>
+      <viewAttribute id="YEAR">
+        <descriptions defaultDescription="YEAR"/>
+      </viewAttribute>
+      <viewAttribute id="QUARTER">
+        <descriptions defaultDescription="QUARTER"/>
+      </viewAttribute>
+      <viewAttribute id="MONTH">
+        <descriptions defaultDescription="MONTH"/>
+      </viewAttribute>
+      <viewAttribute id="WEEK">
+        <descriptions defaultDescription="WEEK"/>
+      </viewAttribute>
+      <viewAttribute id="WEEK_YEAR">
+        <descriptions defaultDescription="WEEK_YEAR"/>
+      </viewAttribute>
+      <viewAttribute id="DAY_OF_WEEK">
+        <descriptions defaultDescription="DAY_OF_WEEK"/>
+      </viewAttribute>
+      <viewAttribute id="DAY">
+        <descriptions defaultDescription="DAY"/>
+      </viewAttribute>
+      <viewAttribute id="HOUR">
+        <descriptions defaultDescription="HOUR"/>
+      </viewAttribute>
+      <viewAttribute id="MINUTE">
+        <descriptions defaultDescription="MINUTE"/>
+      </viewAttribute>
+      <viewAttribute id="SECOND">
+        <descriptions defaultDescription="SECOND"/>
+      </viewAttribute>
+      <viewAttribute id="CALQUARTER">
+        <descriptions defaultDescription="CALQUARTER"/>
+      </viewAttribute>
+      <viewAttribute id="CALMONTH">
+        <descriptions defaultDescription="CALMONTH"/>
+      </viewAttribute>
+      <viewAttribute id="CALWEEK">
+        <descriptions defaultDescription="CALWEEK"/>
+      </viewAttribute>
+      <viewAttribute id="YEAR_INT">
+        <descriptions defaultDescription="YEAR_INT"/>
+      </viewAttribute>
+      <viewAttribute id="QUARTER_INT">
+        <descriptions defaultDescription="QUARTER_INT"/>
+      </viewAttribute>
+      <viewAttribute id="MONTH_INT">
+        <descriptions defaultDescription="MONTH_INT"/>
+      </viewAttribute>
+      <viewAttribute id="WEEK_INT">
+        <descriptions defaultDescription="WEEK_INT"/>
+      </viewAttribute>
+      <viewAttribute id="WEEK_YEAR_INT">
+        <descriptions defaultDescription="WEEK_YEAR_INT"/>
+      </viewAttribute>
+      <viewAttribute id="DAY_OF_WEEK_INT">
+        <descriptions defaultDescription="DAY_OF_WEEK_INT"/>
+      </viewAttribute>
+      <viewAttribute id="DAY_INT">
+        <descriptions defaultDescription="DAY_INT"/>
+      </viewAttribute>
+      <viewAttribute id="TZNTSTMPS">
+        <descriptions defaultDescription="TZNTSTMPS"/>
+      </viewAttribute>
+      <viewAttribute id="TZNTSTMPL">
+        <descriptions defaultDescription="TZNTSTMPL"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="HC::M_TIME_DIMENSION_SYS_BI">
+      <mapping xsi:type="Calculation:AttributeMapping" target="DATETIMESTAMP" source="DATETIMESTAMP"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DATE_SQL" source="DATE_SQL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DATETIME_SAP" source="DATETIME_SAP"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DATE_SAP" source="DATE_SAP"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="YEAR" source="YEAR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="QUARTER" source="QUARTER"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MONTH" source="MONTH"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="WEEK" source="WEEK"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="WEEK_YEAR" source="WEEK_YEAR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DAY_OF_WEEK" source="DAY_OF_WEEK"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DAY" source="DAY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="HOUR" source="HOUR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MINUTE" source="MINUTE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SECOND" source="SECOND"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CALQUARTER" source="CALQUARTER"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CALMONTH" source="CALMONTH"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CALWEEK" source="CALWEEK"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="YEAR_INT" source="YEAR_INT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="QUARTER_INT" source="QUARTER_INT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MONTH_INT" source="MONTH_INT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="WEEK_INT" source="WEEK_INT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="WEEK_YEAR_INT" source="WEEK_YEAR_INT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DAY_OF_WEEK_INT" source="DAY_OF_WEEK_INT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DAY_INT" source="DAY_INT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TZNTSTMPS" source="TZNTSTMPS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TZNTSTMPL" source="TZNTSTMPL"/>
+    </input>
+    <filter>(&quot;HOUR&quot;='00') AND (&quot;SECOND&quot;='00') AND (&quot;MINUTE&quot;='00')</filter>
+  </calculationView>
+</calculationViews>
+<inlineHierarchy xsi:type="Dimension:LeveledHierarchy" id="Gregorian_Hierarchy" aggregateAllNodes="false" orphanedNodesHandling="ROOT_NODES" nodeStyle="NAME_PATH" cacheEnabled="true" cycleHandling="BREAKUP" emptyValueIsNull="true">
+  <descriptions defaultDescription="Gregorian_Hierarchy"/>
+  <levels>
+    <level levelAttribute="YEAR" levelType="MDLEVEL_TYPE_TIME_YEARS" order="1" orderAttribute="YEAR" sortDirection="ASC"/>
+    <level levelAttribute="QUARTER" levelType="MDLEVEL_TYPE_TIME_QUARTERS" order="2" orderAttribute="QUARTER" sortDirection="ASC"/>
+    <level levelAttribute="MONTH" levelType="MDLEVEL_TYPE_TIME_MONTHS" order="3" orderAttribute="MONTH" sortDirection="ASC"/>
+    <level levelAttribute="WEEK" levelType="MDLEVEL_TYPE_TIME_WEEKS" order="4" orderAttribute="WEEK" sortDirection="ASC"/>
+    <level levelAttribute="DAY" levelType="MDLEVEL_TYPE_TIME_DAYS" order="5" orderAttribute="DAY" sortDirection="ASC"/>
+  </levels>
+</inlineHierarchy>
+<logicalModel id="Projection_1">
+  <attributes>
+    <attribute id="DATETIMESTAMP" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DATETIMESTAMP"/>
+      <keyMapping columnObjectName="Projection_1" columnName="DATETIMESTAMP"/>
+    </attribute>
+    <attribute id="DATE_SQL" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DATE_SQL"/>
+      <keyMapping columnObjectName="Projection_1" columnName="DATE_SQL"/>
+    </attribute>
+    <attribute id="DATETIME_SAP" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DATETIME_SAP"/>
+      <keyMapping columnObjectName="Projection_1" columnName="DATETIME_SAP"/>
+    </attribute>
+    <attribute id="DATE_SAP" key="true" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DATE_SAP"/>
+      <keyMapping columnObjectName="Projection_1" columnName="DATE_SAP"/>
+    </attribute>
+    <attribute id="YEAR" key="true" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="YEAR"/>
+      <keyMapping columnObjectName="Projection_1" columnName="YEAR"/>
+    </attribute>
+    <attribute id="QUARTER" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="QUARTER"/>
+      <keyMapping columnObjectName="Projection_1" columnName="QUARTER"/>
+    </attribute>
+    <attribute id="MONTH" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MONTH"/>
+      <keyMapping columnObjectName="Projection_1" columnName="MONTH"/>
+    </attribute>
+    <attribute id="WEEK" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="WEEK"/>
+      <keyMapping columnObjectName="Projection_1" columnName="WEEK"/>
+    </attribute>
+    <attribute id="WEEK_YEAR" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="WEEK_YEAR"/>
+      <keyMapping columnObjectName="Projection_1" columnName="WEEK_YEAR"/>
+    </attribute>
+    <attribute id="DAY_OF_WEEK" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DAY_OF_WEEK"/>
+      <keyMapping columnObjectName="Projection_1" columnName="DAY_OF_WEEK"/>
+    </attribute>
+    <attribute id="DAY" key="true" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DAY"/>
+      <keyMapping columnObjectName="Projection_1" columnName="DAY"/>
+    </attribute>
+    <attribute id="CALQUARTER" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CALQUARTER"/>
+      <keyMapping columnObjectName="Projection_1" columnName="CALQUARTER"/>
+    </attribute>
+    <attribute id="CALMONTH" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CALMONTH"/>
+      <keyMapping columnObjectName="Projection_1" columnName="CALMONTH"/>
+    </attribute>
+    <attribute id="CALWEEK" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CALWEEK"/>
+      <keyMapping columnObjectName="Projection_1" columnName="CALWEEK"/>
+    </attribute>
+    <attribute id="YEAR_INT" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="YEAR_INT"/>
+      <keyMapping columnObjectName="Projection_1" columnName="YEAR_INT"/>
+    </attribute>
+    <attribute id="QUARTER_INT" order="16" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="QUARTER_INT"/>
+      <keyMapping columnObjectName="Projection_1" columnName="QUARTER_INT"/>
+    </attribute>
+    <attribute id="MONTH_INT" order="17" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MONTH_INT"/>
+      <keyMapping columnObjectName="Projection_1" columnName="MONTH_INT"/>
+    </attribute>
+    <attribute id="WEEK_INT" order="18" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="WEEK_INT"/>
+      <keyMapping columnObjectName="Projection_1" columnName="WEEK_INT"/>
+    </attribute>
+    <attribute id="WEEK_YEAR_INT" order="19" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="WEEK_YEAR_INT"/>
+      <keyMapping columnObjectName="Projection_1" columnName="WEEK_YEAR_INT"/>
+    </attribute>
+    <attribute id="DAY_OF_WEEK_INT" order="20" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DAY_OF_WEEK_INT"/>
+      <keyMapping columnObjectName="Projection_1" columnName="DAY_OF_WEEK_INT"/>
+    </attribute>
+    <attribute id="DAY_INT" order="21" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DAY_INT"/>
+      <keyMapping columnObjectName="Projection_1" columnName="DAY_INT"/>
+    </attribute>
+    <attribute id="TZNTSTMPS" order="22" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TZNTSTMPS"/>
+      <keyMapping columnObjectName="Projection_1" columnName="TZNTSTMPS"/>
+    </attribute>
+    <attribute id="TZNTSTMPL" order="23" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TZNTSTMPL"/>
+      <keyMapping columnObjectName="Projection_1" columnName="TZNTSTMPL"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="92" y="112"/>
+    
+      <rectangleSize width="185"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="92" y="217"/>
+    
+      <rectangleSize width="185"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

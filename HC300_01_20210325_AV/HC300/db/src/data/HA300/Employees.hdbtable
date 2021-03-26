@@ -1,0 +1,8 @@
+COLUMN TABLE "HC::Employees"
+	(
+	"EmployeeID" INTEGER NOT NULL,
+	"Country" NVARCHAR(2),
+	"BankAccountNumber" NVARCHAR(15),
+	PRIMARY KEY ("EmployeeID")
+    )
+    ;
